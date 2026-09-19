@@ -53,3 +53,13 @@ final result: passed
 - P3：选定稿中的摄影和服务图片是参考素材，当前为同方向重新生成；正式上线可替换甲方授权原图。
 - P3：补充四分类、示例资讯、企业阶段、部分商品内容待甲方确认。
 - 限制：通过桌面浏览器移动视口检查，未宣称真实 iPhone/Android 硬件验收。微信支付、真实客服和后端均不在本次首页设计交付范围。
+
+## GitHub Pages live acceptance
+
+- Public URL: https://yonge6.github.io/qifuxiang-homepage/
+- Successful deployment run: 35468903348; application commit: 432cf717579c2b68a0108bc4f4e6cd123630d9cf.
+- Browser opened the public URL at 390 × 844. Confirmed 8 categories, 6 products, two grid columns of 169.5px, all images loaded, no horizontal overflow, no captured runtime errors.
+- Opened the live customer-service sheet successfully; scrolled to enterprise services and confirmed fixed navigation bounds y=776, height=68, bottom=844.
+- Live screenshots: `docs/qa/live-mobile.png`, `docs/qa/live-bottom.png`.
+- Deployed JS is `assets/h5-DqBg5WNj.js`, matching the verified local production build.
+- Initial deployment attempt used the feature branch, but the newly created Pages environment allowed main. Publication was moved to main without relaxing environment protection. The following run succeeded.
