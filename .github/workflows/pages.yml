@@ -1,7 +1,7 @@
 name: Publish homepage
 on:
   push:
-    branches: [codex/homepage]
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
