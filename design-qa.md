@@ -1,6 +1,8 @@
 # Current revision QA — 2026-09-20
 
-Result: local checks passed; deployment readback pending.
+Result: passed locally and on the public GitHub Pages URL.
+
+Deployment: GitHub run 35483783711 succeeded for commit 3c33ea0. Public browser readback loaded assets/h5-MXiivqMe.js, four actual products, four articles in each tab, all three mature-stage cards, metrics 187/64/48 and zero broken images. Growth-stage and customer-service dialog also passed local interaction checks.
 
 - Source: live WeChat mini-program after re-login; audit in docs/live-content-audit-2026-09-20.md.
 - Four actual popular services, two-column grid; both news tabs have four source articles; all three enterprise stage tabs have three actual cards.
