@@ -1,3 +1,15 @@
+# Exact reference style revision
+
+final result: passed
+
+Source: user image ba706bc41f3e90c00dd7468c6086d932.png (853 × 1844). Implementation: /tmp/qfx-reference-style.png, 390 × 844 CSS px at DPR 1. Both opened together in the same comparison input. Region comparison used the source hero and category row, scaled proportionally to the 390px page width. Full-page composition differs intentionally: eight entries/two rows and two-column products remain required.
+
+Earlier finding: prior iteration's outlined vector icons and different hero composition did not reproduce the supplied reference's material quality. Fix: extracted original supplied hero artwork and first four icon assets; generated four individual complementary raster icons with the reference as style input. Latest visible comparison verifies actual glass assets rather than vector approximation. All project assets saved under public/images.
+
+Required surfaces: typography is near-black with larger 35px metrics; source headline stays embedded in actual source art. Layout retains section order and responsive product grid. Surface colors are pale blue and translucent white with restrained shadows, removing the previous heavy outlines/underlines. Image quality: source art is high resolution relative to its displayed size; new icon assets exported at 256px for 64px use. Business copy and data unchanged, including real product photos.
+
+Checks: 8 raster category icons, 4 news rows, 3 enterprise stage cards; 320px and 390px without horizontal overflow; no broken images; browser console errors empty. Production build and 28 protected runtime checks passed. No outstanding P0/P1/P2. Added second-row icons are slightly glossier than the original first row (P3 optional future material tuning).
+
 # Eight category navigation — latest scoped change
 
 final result: passed
