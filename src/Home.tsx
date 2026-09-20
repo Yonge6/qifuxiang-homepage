@@ -46,10 +46,35 @@ export default function Home({ runtime = false }: { runtime?: boolean }) {
   const flash = (text: string) => setNotice(text);
   useEffect(() => { if (!notice) return; const timer = setTimeout(() => setNotice(''), 2400); return () => clearTimeout(timer); }, [notice]);
   useEffect(() => {
-    const node = hero.current?.querySelector('.mobile-carousel');
-    const update = () => node && setSlide(Math.round(node.scrollLeft / node.clientWidth));
-    node?.addEventListener('scroll', update, { passive: true });
-    return () => node?.removeEventListener('scroll', update);
+    const node = hero.current?.querySelector<HTMLElement>('.mobile-carousel');
+    if (!node) return;
+    let interacting = false;
+    let lastInput = 0;
+    const update = () => setSlide(Math.round(node.scrollLeft / node.clientWidth));
+    const down = () => { interacting = true; lastInput = Date.now(); };
+    const up = () => { if (interacting) { interacting = false; lastInput = Date.now(); } };
+    const click = () => { lastInput = Date.now(); };
+    node.addEventListener('scroll', update, { passive: true });
+    const wrap = hero.current!;
+    wrap.addEventListener('pointerdown', down);
+    wrap.addEventListener('click', click);
+    window.addEventListener('pointerup', up);
+    window.addEventListener('pointercancel', up);
+    update();
+    const timer = window.setInterval(() => {
+      const rect = node.getBoundingClientRect();
+      if (document.hidden || interacting || Date.now() - lastInput < 5000 || rect.bottom <= 0 || rect.top >= window.innerHeight) return;
+      const next = (Math.round(node.scrollLeft / node.clientWidth) + 1) % heroImages.length;
+      node.scrollTo({ left: next * node.clientWidth, behavior: 'smooth' });
+    }, 5000);
+    return () => {
+      clearInterval(timer);
+      node.removeEventListener('scroll', update);
+      wrap.removeEventListener('pointerdown', down);
+      wrap.removeEventListener('click', click);
+      window.removeEventListener('pointerup', up);
+      window.removeEventListener('pointercancel', up);
+    };
   }, [activeNav]);
   useEffect(() => {
     const scroller = runtime ? page.current?.querySelector('.mobile-scroll') : window;

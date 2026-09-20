@@ -12,11 +12,6 @@ export default function Dashboard() {
   const pointerDown = useRef(false);
   const visible = useRef(false);
   const lastInput = useRef(0);
-  const go = (index:number) => {
-    lastInput.current = Date.now();
-    const node=root.current?.querySelector<HTMLElement>('.mobile-carousel');
-    node?.scrollTo({left:node.clientWidth*index,behavior:'smooth'});
-  };
   useEffect(()=>{
     const node=root.current?.querySelector<HTMLElement>('.mobile-carousel');
     if(!node || !root.current) return;
@@ -45,13 +40,13 @@ export default function Dashboard() {
     return()=>clearInterval(timer);
   },[]);
   return <section ref={root} className="panel dashboard" aria-labelledby="dashboard-title">
-    <div className="dashboard-heading"><h2 id="dashboard-title">数据看板</h2><p className="dashboard-description">{pages[active].title}</p></div>
+    <div className="dashboard-heading"><h2 id="dashboard-title">数据看板</h2><p className="dashboard-description">{pages[active].title}</p><span className="dashboard-count" aria-label={`第${active + 1}页，共2页`}>{active + 1}/2</span></div>
     <Carousel className="dashboard-carousel" contentClassName="dashboard-track" ariaLabel="数据看板，左右滑动切换两页">
       {pages.map((page,i)=><div className="dashboard-page" key={page.title} role="group" aria-label={`第${i+1}页，共2页`} aria-hidden={active!==i}>
         
         <div className="metrics">{page.metrics.map(([label,value,unit])=><div className="metric" key={label}><span>{label}</span><div><strong>{value}</strong><small>{unit}</small></div></div>)}</div>
       </div>)}
     </Carousel>
-    <div className="dashboard-controls"><div className="dashboard-pages">{pages.map((_,i)=><button key={i} aria-label={`查看第${i+1}页数据`} aria-current={active===i} className={active===i?'active':''} onClick={()=>go(i)} />)}</div></div>
+
   </section>;
 }
