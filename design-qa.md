@@ -1,3 +1,28 @@
+# Blue technology quality refinement — 2026-09-20
+
+final result: passed
+
+Source visual truth: /tmp/qfx-quality-before.png (approved current page, before focused refinement).
+Implementation: /tmp/qfx-quality-after.png; lower-page detail /tmp/qfx-quality-bottom.png.
+Viewport: 390 × 844 CSS pixels, devicePixelRatio 1. Source and implementation both 390 × 844; same homepage/top/default tabs. Both images displayed together in one comparison input.
+
+## Findings and comparison
+
+No actionable P0/P1/P2 issues after refinement. User-requested changes are intentional: dashboard caption is now a separate readable line; three genuine category entries fill the existing single row evenly; panels gain measured spacing and subtle edges. Module order, two-column products, source images, article count and enterprise tab anatomy are unchanged.
+
+- Fonts/typography: system Chinese family preserved; section titles 19px/700, product titles 13px/600 with two-line clamp; numerical hierarchy 32px with aligned units. Source's tiny inline dashboard caption moved below title.
+- Spacing/layout: retained long-page structure; 12px page gutters, 12px section spacing, balanced three-entry category row. The more generous first-screen treatment moves product titles below the fold; acceptable because long-page scrolling remains clear and product grid itself is unchanged.
+- Colors/tokens: deep navy text, restrained ice-blue surfaces, consistent blue/cyan icons; muted text darkened. Existing actual product photography remains unmodified.
+- Images: existing approved glass-ribbon hero retained. All actual product thumbnails load; inner image borders and masks are consistent. No replacement artwork or invented source content.
+- Copy: src/content.ts and src/Home.tsx unchanged in this refinement. Four products, four articles per news tab, three service cards per enterprise tab retained.
+- Focused inspection: lower-page capture verifies readable news excerpts and three-card enterprise tab. Main screenshot is readable at 1:1 and covers typography, metric panel, category icons and customer support treatment.
+
+## Verification
+
+320px and 390px widths without horizontal overflow; mature-stage headings fit at 320px. Knowledge tab has four entries, mature stage has three actual cards. Customer support dialog opens/closes. Zero broken images and zero browser console errors. Build and all 28 protected runtime file checks passed.
+
+## Previous revision evidence
+
 # Current revision QA — 2026-09-20
 
 Result: passed locally and on the public GitHub Pages URL.
