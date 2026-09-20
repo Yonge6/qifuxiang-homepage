@@ -1,3 +1,13 @@
+# Eight category navigation — latest scoped change
+
+final result: passed
+
+Source: user attachment codex-clipboard-0b9c0079-3953-41ce-ab37-f3c1fbc93518.png (854 × 1846, style reference). Implementation: /tmp/qfx-eight-categories.png (390 × 844, devicePixelRatio 1). Both opened in one comparison input; compared category region rather than different whole-page crops. Reference has four entries; user expressly requests two rows/eight. Source artwork is interpreted with the existing Phosphor duotone icon library, softly colored tiles, highlights and shadows; not claimed as pixel-identical 3D raster artwork.
+
+Typography: four-character labels remain unwrapped at 320px and 390px. Spacing: exactly four columns and two rows, uniform 51px icon tiles (46px on narrow phones). Color: first row blue/orange/mint/purple as requested reference; second row complementary blue/gold/indigo/lilac. Images/content: source product images and all factual data untouched. Added categories are explicitly user-authorized design definitions. Category buttons still open the filtered product sheet; 财税服务 returns the captured audit product. No invented products added for empty categories.
+
+Verification: 8 labels, 2 rows, no horizontal overflow at 320px; production build and 28 protected runtime checks pass. No actionable P0/P1/P2 findings.
+
 # Blue technology quality refinement — 2026-09-20
 
 final result: passed

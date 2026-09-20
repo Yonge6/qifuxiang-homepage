@@ -34,7 +34,7 @@ export default function Home({ runtime = false }: { runtime?: boolean }) {
   const lastFocus = useRef<HTMLElement | null>(null);
   const Field = (runtime ? KeyboardInput : NativeField) as ComponentType<InputHTMLAttributes<HTMLInputElement>>;
   const cartCount = cart.reduce((sum, line) => sum + line.quantity, 0);
-  const filtered = products.filter(p => (activeCategory === '全部' || p.category === activeCategory) && `${p.title}${p.subtitle}${p.category}`.includes(query.trim()));
+  const filtered = products.filter(p => (activeCategory === '全部' || `${p.title}${p.subtitle}`.includes(categories.find(c => c.name === activeCategory)?.keywords ?? activeCategory)) && `${p.title}${p.subtitle}${p.category}`.includes(query.trim()));
   const show = (next: Panel) => { lastFocus.current = document.activeElement as HTMLElement; setPanel(next); };
   const close = () => { setPanel(null); requestAnimationFrame(() => lastFocus.current?.focus()); };
   const flash = (text: string) => setNotice(text);

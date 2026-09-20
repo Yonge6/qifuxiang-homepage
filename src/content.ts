@@ -1,9 +1,15 @@
 // Content transcribed from the live mini-program and user-provided captures on 2026-09-20.
 // This is a captured snapshot, not a live backend connection.
+// Eight navigation categories are user-authorized design proposals, not source inventory.
 export const categories = [
   { name: '体系认证', icon: 'shield', keywords: '认证' },
+  { name: '工商代办', icon: 'building', keywords: '工商' },
   { name: '政策补贴', icon: 'document', keywords: '政策' },
   { name: '科技申报', icon: 'bulb', keywords: '科技' },
+  { name: '财税服务', icon: 'receipt', keywords: '财务' },
+  { name: '知识产权', icon: 'copyright', keywords: '知识产权' },
+  { name: '资质许可', icon: 'certificate', keywords: '许可' },
+  { name: '法律服务', icon: 'scales', keywords: '法律' },
 ];
 export const products = [
   {
