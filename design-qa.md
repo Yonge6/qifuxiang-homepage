@@ -1,3 +1,19 @@
+# Batched homepage annotation acceptance
+
+final result: passed
+
+Source: user browser annotations and two supplied dashboard screenshots (187/64/48 and 284/3201/980). Rendered evidence: /tmp/qfx-final-annotations.png at 390 × 844 DPR1, plus live enterprise-row screenshot viewed during QA. Latest source requirements intentionally supersede original three-column enterprise cards and thick-glass icons.
+
+- Typography: product/news/enterprise headings uniformly 15px at 390px and 320px; DOM inspection found no homepage leaf text below 12px. Supporting copy enlarged and dashboard description placed on its own line.
+- Layout: product image width equals card content width and margin is zero for every card. Enterprise services now three full-width horizontal rows under unchanged three stage tabs. At 320px the CTA moves below body text rather than reducing typography. No horizontal overflow.
+- Color: all metric labels identical gray; all numbers identical deep ink. Middle metric transparent, two 1px vertical dividers.
+- Images: eight individual semi-flat raster icons generated and installed; both category grid and enterprise cards share them. Thick-glass assets replaced. No broken image sources.
+- Copy: removed footer source/date line only. Dashboard page one 申请量187件 / 下证量64件 / 驳回量48件. Page two 申请量(新办|年审)284家 / 发证量3201张 / 失效(注销|撤销)980张, directly from latest user screenshots.
+- Interaction: existing protected Carousel reused; native drag moved page two to page one, pagination moved to page two, automatic 5.5-second advance observed from page one to page two. Auto playback pauses during pointer interaction, after user input, when offscreen or when tab hidden. No visible play/pause button. Each slide width equals viewport width; resize aligns current page.
+- Build: production H5 and all 28 protected runtime checks passed. No source runtime edits. Existing news and enterprise tabs remain functional.
+
+No actionable P0/P1/P2 findings. Deployment verification follows the code push.
+
 # Exact reference style revision
 
 final result: passed

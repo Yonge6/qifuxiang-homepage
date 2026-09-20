@@ -350,3 +350,71 @@ html { background:#e9eff7; }
 .support-key { width:62px;height:62px;background:#1680ff;border-color:#63b9ff;box-shadow:inset 0 2px 5px #ffffff65,0 0 0 4px #e0f1ff,0 7px 22px #147cff2b; }
 .bottom-nav { background:#ffffffed; box-shadow:0 -3px 20px #3975bc04; border-top-color:#f0f5fb; }
 @media(max-width:359px){.category-grid .category-icon,.category-icon img{width:57px;height:57px}.category-grid button{font-size:12px}.dashboard h2{font-size:18px}.dashboard-heading p{font-size:9px}.metric strong{font-size:32px}}
+/* Dashboard annotation: neutral surface with two slim vertical dividers. */
+.metric:nth-child(2) { background:transparent; box-shadow:none; border-radius:0; }
+.metric+.metric:before { display:block; width:1px; height:44px; top:50%; left:-2px; transform:translateY(-50%); background:#e0e8f2; }
+/* Product-title annotation: consistent 15px at every supported width. */
+.product-info h3 { font-size:15px; line-height:1.5; min-height:45px; }
+/* Readability pass: titles 15px; secondary copy 13px, metadata at least 12px. */
+:root { --q-title-size:15px; --q-copy-size:13px; --q-meta-size:12px; }
+.product-info h3,.news-copy h3 { font-size:var(--q-title-size); }
+.dashboard-heading { display:block; }
+.dashboard-heading p { font-size:var(--q-copy-size); margin-top:5px; color:#738297; line-height:1.6; }
+.activity span { font-size:13px; }
+.metric>span,.metric small { font-size:14px; }
+.category-grid button { font-size:14px; }
+.text-link { font-size:13px; }
+.product-info p { font-size:13px; line-height:1.6; color:#788698; }
+.social-proof { font-size:12px; }
+.news-copy p { font-size:13px; color:#738297; }
+.news-copy small { font-size:12px; }
+.news-tabs button,.enterprise-tabs button { font-size:14px; }
+.enterprise-card h3 { font-size:14px; white-space:normal; line-height:1.45; min-height:41px; letter-spacing:0; }
+.enterprise-card p { font-size:12px; white-space:normal; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; min-height:36px; }
+.enterprise-card>span { font-size:12px; }
+.enterprise-card { min-height:192px; }
+.page-footer p,.page-footer small { font-size:12px; color:#7c8ca1; }
+.bottom-nav button>span { font-size:12px; }
+.support-key>span { font-size:12px; }
+/* Supplemental panels share the same readable secondary-text floor. */
+.detail-price>span,.article-meta,.filter-wrap,.demo-note { font-size:12px!important; }
+.detail-subtitle,.detail-block p,.detail-block ol,.advisor p,.tool-grid button,.account-links button,.cart-line h3,.quantity,.cart-total,.article-detail>p,.consult-strip span { font-size:13px!important; }
+.news-label { font-size:12px; }
+@media(max-width:359px){.category-grid button{font-size:13px}.enterprise-card h3{font-size:14px}.product-bottom{flex-wrap:wrap;gap:3px}.enterprise-card{padding-left:6px;padding-right:6px}}
+/* Enterprise cards: semantic glass illustrations and readable shared title scale. */
+.enterprise-card { display:flex; flex-direction:column; align-items:flex-start; min-height:212px; padding:14px 8px 77px; background:#f7faff; border:1px solid #e3edf9; border-radius:14px; box-shadow:inset 0 1px 0 #fff,0 4px 12px #37659308; }
+.enterprise-card-1 { background:#f8f9ff; border-color:#e6eafa; }
+.enterprise-card-2 { background:#f4fbfd; border-color:#e0eff5; }
+.enterprise-card h3 { font-size:var(--q-title-size); line-height:1.5; min-height:45px; color:#1c3454; }
+.enterprise-card p { font-size:12px; line-height:1.6; margin-top:5px; color:#75879d; min-height:38px; }
+.enterprise-card>span { font-size:12px; margin-top:11px; gap:1px; }
+.enterprise-art { position:absolute; right:8px; bottom:10px; width:58px; height:58px; object-fit:contain; }
+@media(max-width:359px){.enterprise-card{padding-left:6px;padding-right:6px}.enterprise-card h3{font-size:15px}.enterprise-art{right:5px}}
+/* Neutral, consistent colors across all dashboard metrics. */
+.metric>span,.metric:nth-child(2)>span { color:#7c8497; }
+.metric strong,.metric:nth-child(2) strong { color:#131a30; }
+/* Product images meet the card edges uniformly. */
+.product-card>img { width:100%; margin:0; border-radius:0; }
+/* Two-page dashboard using the existing gesture-aware carousel. */
+.dashboard-carousel { margin-top:5px; }
+.dashboard-track { width:200%; }
+.dashboard-page { flex:0 0 50%; width:50%; min-width:0; }
+.dashboard-description { font-size:13px; line-height:1.6; color:#738297; min-height:42px; margin:0 0 10px!important; }
+.dashboard-controls { display:flex; justify-content:center; align-items:center; gap:8px; height:22px; margin-top:5px; }
+.dashboard-pages { display:flex; align-items:center; gap:2px; }
+.dashboard-pages button { width:22px; height:22px; padding:0; background:none; display:grid; place-items:center; }
+.dashboard-pages button:after { content:''; width:5px; height:5px; border-radius:50%; background:#cedceb; }
+.dashboard-pages button.active:after { width:15px; border-radius:4px; background:#2586fa; }
+.dashboard-play { display:grid; place-items:center; width:24px; height:22px; padding:0; background:none; color:#8b9caf!important; }
+/* Enterprise cards become full-width horizontal service rows. */
+.enterprise-cards { grid-template-columns:1fr; gap:10px; }
+.enterprise-card { display:grid; grid-template-columns:68px minmax(0,1fr) auto; column-gap:12px; row-gap:4px; align-items:center; min-height:105px; padding:15px 12px; border-radius:14px; }
+.enterprise-card h3 { grid-column:2; grid-row:1; min-height:0; font-size:15px; line-height:1.5; }
+.enterprise-card p { grid-column:2; grid-row:2; min-height:0; margin:0; font-size:13px; -webkit-line-clamp:2; }
+.enterprise-card>span { grid-column:3; grid-row:1 / 3; margin:0; font-size:12px; white-space:nowrap; }
+.enterprise-art { position:static; grid-column:1; grid-row:1 / 3; width:68px; height:68px; }
+@media(max-width:359px){.enterprise-card{grid-template-columns:56px minmax(0,1fr);gap:3px 9px;padding:12px}.enterprise-art{width:56px;height:56px;grid-row:1 / 4}.enterprise-card>span{grid-column:2;grid-row:3}.enterprise-card h3{font-size:15px}}
+/* Longer second-page labels wrap at a readable size, without changing alignment. */
+.dashboard-page .metric>span { display:flex; align-items:center; justify-content:center; min-height:40px; line-height:1.4; padding:0 4px; overflow-wrap:anywhere; }
+.dashboard-page .metric strong { font-size:32px; }
+@media(max-width:359px){.dashboard-page .metric strong{font-size:27px}.dashboard-page .metric small{font-size:12px}.dashboard-page .metric>span{font-size:13px}}
