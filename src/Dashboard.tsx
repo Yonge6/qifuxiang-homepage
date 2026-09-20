@@ -45,10 +45,10 @@ export default function Dashboard() {
     return()=>clearInterval(timer);
   },[]);
   return <section ref={root} className="panel dashboard" aria-labelledby="dashboard-title">
-    <h2 id="dashboard-title">数据看板</h2>
+    <div className="dashboard-heading"><h2 id="dashboard-title">数据看板</h2><p className="dashboard-description">{pages[active].title}</p></div>
     <Carousel className="dashboard-carousel" contentClassName="dashboard-track" ariaLabel="数据看板，左右滑动切换两页">
       {pages.map((page,i)=><div className="dashboard-page" key={page.title} role="group" aria-label={`第${i+1}页，共2页`} aria-hidden={active!==i}>
-        <p className="dashboard-description">{page.title}</p>
+        
         <div className="metrics">{page.metrics.map(([label,value,unit])=><div className="metric" key={label}><span>{label}</span><div><strong>{value}</strong><small>{unit}</small></div></div>)}</div>
       </div>)}
     </Carousel>

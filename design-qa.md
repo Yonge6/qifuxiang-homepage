@@ -143,3 +143,7 @@ final result: blocked
 - Live screenshots: `docs/qa/live-mobile.png`, `docs/qa/live-bottom.png`.
 - Deployed JS is `assets/h5-DqBg5WNj.js`, matching the verified local production build.
 - Initial deployment attempt used the feature branch, but the newly created Pages environment allowed main. Publication was moved to main without relaxing environment protection. The following run succeeded.
+
+## Latest compact dashboard amendment
+
+Caption is an explicit user-requested exception: 10px to the right of 数据看板, synchronized with the active page. Removed its dedicated body row and reduced panel height to 157px at 390px width. Both pages keep a stable header height, 15px content-title rules elsewhere remain. Local readback confirms 10px caption and no overflow. Build/runtime checks pass.

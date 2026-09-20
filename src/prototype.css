@@ -418,3 +418,14 @@ html { background:#e9eff7; }
 .dashboard-page .metric>span { display:flex; align-items:center; justify-content:center; min-height:40px; line-height:1.4; padding:0 4px; overflow-wrap:anywhere; }
 .dashboard-page .metric strong { font-size:32px; }
 @media(max-width:359px){.dashboard-page .metric strong{font-size:27px}.dashboard-page .metric small{font-size:12px}.dashboard-page .metric>span{font-size:13px}}
+/* Compact dashboard: the caption is the explicit 10px exception. */
+.dashboard { padding:12px 12px 6px; }
+.dashboard .dashboard-heading { display:flex; align-items:center; gap:8px; margin:0 0 5px; }
+.dashboard .dashboard-heading h2 { flex:none; }
+.dashboard .dashboard-heading .dashboard-description { font-size:10px; line-height:1.5; min-height:0; margin:0!important; flex:1; color:#7c899b; }
+.dashboard-carousel { margin-top:0; }
+.dashboard-page .metric { padding:3px 0; }
+.dashboard-page .metric>span { min-height:36px; }
+.dashboard-page .metric>div { margin-top:0; }
+.dashboard-controls { height:17px; margin-top:0; }
+.dashboard-pages button { height:17px; }
