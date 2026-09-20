@@ -1,4 +1,5 @@
 import Dashboard from './Dashboard';
+import NavIcon, { type NavName } from './NavIcon';
 import { useEffect, useRef, useState, type ComponentType, type InputHTMLAttributes, type ReactNode } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { ShieldCheck, Buildings, BuildingOffice, FileArrowUp, Lightbulb, Receipt, Copyright, Certificate, Scales, House, SquaresFour, Headset, ShoppingCart, User, Bell, MagnifyingGlass, CaretDown, CaretRight, X, DotsThree, Record, ArrowUp, ArrowRight, CheckCircle, RocketLaunch, ChartLineUp, TrendUp, Minus, Plus, Trash, PaperPlaneTilt, ChatCircleText, MapPin, Info, SlidersHorizontal, Eye } from '@phosphor-icons/react';
@@ -75,7 +76,19 @@ export default function Home({ runtime = false }: { runtime?: boolean }) {
   return <div className={`qfx-app ${runtime ? 'qfx-runtime' : 'qfx-h5'}`} ref={page}>
     <header className="topbar"><button className="location-button" onClick={() => show('location')}>{location}<CaretDown size={12} /></button><button className="search-trigger" onClick={() => openSearch()}><MagnifyingGlass size={20} /><span>搜索</span></button><div className="wechat-capsule"><button aria-label="更多信息" onClick={() => show('menu')}><DotsThree size={24} weight="bold" /></button><button aria-label="回到首页顶部" onClick={goTop}><Record size={22} weight="bold" /></button></div></header>
     {runtime ? <MobileScroll className="qfx-scroll"><main className="qfx-content">{content}</main></MobileScroll> : <main className="qfx-content">{content}</main>}
-    <nav className="bottom-nav" aria-label="主导航"><button className="nav-active" onClick={() => { close(); goTop(); }}><House weight="fill" size={26} /><span>首页</span></button><button onClick={() => show('tools')}><SquaresFour size={26} /><span>工具箱</span></button><button className="support-tab" onClick={() => show('support')}><span className="support-key"><Headset size={30} /><span>客服</span></span></button><button onClick={() => show('cart')} className="cart-tab"><ShoppingCart size={26} />{cartCount > 0 && <b>{cartCount}</b>}<span>购物车</span></button><button onClick={() => show('account')}><User size={26} /><span>我的</span></button></nav>
+    <nav className="bottom-nav" aria-label="主导航">{([
+      { name: 'home', label: '首页', target: null },
+      { name: 'tools', label: '工具箱', target: 'tools' },
+      { name: 'support', label: '客服', target: 'support' },
+      { name: 'cart', label: '购物车', target: 'cart' },
+      { name: 'account', label: '我的', target: 'account' },
+    ] as { name: NavName; label: string; target: Panel }[]).map(item => {
+      const active = item.target === null ? !['tools', 'support', 'cart', 'account'].includes(panel ?? '') : panel === item.target;
+      return <button key={item.name} aria-current={active ? 'page' : undefined} className={`${active ? 'nav-active' : ''} ${item.name === 'support' ? 'support-tab' : ''} ${item.name === 'cart' ? 'cart-tab' : ''}`} onClick={() => { if (item.target) show(item.target); else { close(); goTop(); } }}>
+        {item.name === 'support' ? <span className="support-key"><NavIcon name={item.name} active={active} /><span>{item.label}</span></span> : <><NavIcon name={item.name} active={active} /><span>{item.label}</span></>}
+        {item.name === 'cart' && cartCount > 0 && <b>{cartCount}</b>}
+      </button>;
+    })}</nav>
     {showTop && <button className="back-top" onClick={goTop} aria-label="返回顶部"><ArrowUp size={19} /></button>}
     {notice && <div className="toast" role="status"><CheckCircle size={18} />{notice}</div>}
     <PanelBody runtime={runtime} title={panel ? titles[panel] : ''} open={!!panel} close={close}>

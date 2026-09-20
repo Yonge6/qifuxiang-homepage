@@ -429,3 +429,13 @@ html { background:#e9eff7; }
 .dashboard-page .metric>div { margin-top:0; }
 .dashboard-controls { height:17px; margin-top:0; }
 .dashboard-pages button { height:17px; }
+
+/* Navigation: a single optical grid with explicit outline / filled states. */
+.bottom-nav>button{color:#7c8da5;gap:3px}
+.bottom-nav>button.nav-active{color:#1680fa}
+.bottom-nav .nav-symbol{flex:none;filter:none;transition:color .18s ease}
+.bottom-nav .support-key{width:60px;height:60px;border-radius:50%;color:#5683b3;background:linear-gradient(150deg,#f5fbff,#dfedfc);border:3px solid #f8fcff;box-shadow:0 0 0 3px #eaf4ff,0 4px 12px #3276b81a;transition:background .18s ease,color .18s ease}
+.bottom-nav .support-tab.nav-active .support-key{color:white;background:linear-gradient(145deg,#40acff,#1375fa);box-shadow:0 0 0 3px #dcefff,0 4px 14px #2187ff30}
+.bottom-nav>button:focus-visible{outline:2px solid #1680fa;outline-offset:2px;border-radius:10px}
+
+.dashboard-page .metric>span{font-size:12px}

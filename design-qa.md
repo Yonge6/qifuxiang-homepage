@@ -147,3 +147,6 @@ final result: blocked
 ## Latest compact dashboard amendment
 
 Caption is an explicit user-requested exception: 10px to the right of 数据看板, synchronized with the active page. Removed its dedicated body row and reduced panel height to 157px at 390px width. Both pages keep a stable header height, 15px content-title rules elsewhere remain. Local readback confirms 10px caption and no overflow. Build/runtime checks pass.
+
+## Navigation and metric labels
+Five custom SVG navigation icons share a 28px grid with outline/filled states, driven by the active panel and aria-current. Local browser verified tools becomes selected and home unselected. All six dashboard labels read back as 12px. Production build and all 28 runtime integrity checks passed.
