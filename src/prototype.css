@@ -318,7 +318,7 @@ html { background:#e9eff7; }
 .hero-wrap,.hero-slide { background:#e5f5ff; }
 .hero-slide { aspect-ratio:854/403; }
 .hero-dots { display:none; }
-.page-sections { padding-top:0; }
+.page-sections { padding-top:10px; }
 .activity { position:relative; margin-top:0; padding:12px; background:#fffffff0; box-shadow:none; border-radius:14px; }
 .activity span { font-size:12px; color:#4e5871; }
 .panel { background:#fffffff0; border-color:#fff; box-shadow:0 5px 22px #4c8bc007; border-radius:17px; }
@@ -439,3 +439,18 @@ html { background:#e9eff7; }
 .bottom-nav>button:focus-visible{outline:2px solid #1680fa;outline-offset:2px;border-radius:10px}
 
 .dashboard-page .metric>span{font-size:12px}
+
+.nav-empty-page{min-height:calc(100dvh - 130px);background:#f3f9ff}
+.enterprise-symbol{display:grid;place-items:center;border-radius:16px;background:linear-gradient(145deg,#fff,color-mix(in srgb,currentColor 13%,white));border:1px solid color-mix(in srgb,currentColor 13%,white);box-shadow:none}
+.enterprise-symbol svg{width:38px;height:38px}
+.dashboard-heading{container-type:inline-size}
+.dashboard .dashboard-heading .dashboard-description{font-size:clamp(9px,calc((100cqw - 88px) / 21),13px);white-space:nowrap}
+.hero-dots{display:flex;left:auto;right:15px;bottom:12px;padding:6px 9px;border-radius:12px;background:#ffffffb8;gap:7px}
+.hero-dots button{background:#b9d1e6;width:7px;height:7px}
+.hero-dots button.active{background:#1680ff;width:7px;height:7px;margin:0;box-shadow:none}
+
+.hero-dots{left:50%;right:auto;transform:translateX(-50%)}
+
+.dashboard-pages{gap:0}.dashboard-pages button{width:18px}
+.enterprise-card>.enterprise-symbol{grid-column:1;grid-row:1 / 3;margin:0}
+@media(max-width:359px){.enterprise-card>.enterprise-symbol{grid-column:1;grid-row:1 / 4}}

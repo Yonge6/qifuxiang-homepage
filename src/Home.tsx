@@ -1,4 +1,5 @@
 import Dashboard from './Dashboard';
+import EnterpriseIcon from './EnterpriseIcon';
 import NavIcon, { type NavName } from './NavIcon';
 import { useEffect, useRef, useState, type ComponentType, type InputHTMLAttributes, type ReactNode } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
@@ -10,7 +11,8 @@ const glassIcons: Record<string, string> = { shield:'shield', building:'building
 const iconMap: Record<string, typeof ShieldCheck> = { shield: ShieldCheck, building: BuildingOffice, document: FileArrowUp, bulb: Lightbulb, receipt: Receipt, copyright: Copyright, certificate: Certificate, scales: Scales, rocket: RocketLaunch, chart: ChartLineUp, buildings: Buildings, trend: TrendUp };
 type Panel = 'location' | 'search' | 'service' | 'support' | 'cart' | 'tools' | 'account' | 'article' | 'news' | 'menu' | null;
 type CartLine = { product: Product; quantity: number };
-const headlines = ['质量树品牌，诚信立伟业'];
+const headlines = ['质量树品牌，诚信立伟业', '企业服务，陪伴每一步', '政策与科技，助力企业成长'];
+const heroImages = ['hero-reference-clean.webp', 'hero-enterprise.jpg', 'hero-policy.jpg'];
 function NativeField(props: InputHTMLAttributes<HTMLInputElement>) { return <input {...props} />; }
 function SectionTitle({ title, onMore, more = '查看更多' }: { title: string; onMore: () => void; more?: string }) { return <div className="section-heading"><h2>{title}</h2><button className="text-link" onClick={onMore}>{more}<CaretRight size={14} /></button></div>; }
 function PanelBody({ runtime, title, open, close, children }: { runtime: boolean; title: string; open: boolean; close: () => void; children: ReactNode }) {
@@ -19,6 +21,7 @@ function PanelBody({ runtime, title, open, close, children }: { runtime: boolean
 }
 export default function Home({ runtime = false }: { runtime?: boolean }) {
   const [panel, setPanel] = useState<Panel>(null);
+  const [activeNav, setActiveNav] = useState<NavName>('home');
   const [location, setLocation] = useState('武昌区');
   const [query, setQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('全部');
@@ -47,7 +50,7 @@ export default function Home({ runtime = false }: { runtime?: boolean }) {
     const update = () => node && setSlide(Math.round(node.scrollLeft / node.clientWidth));
     node?.addEventListener('scroll', update, { passive: true });
     return () => node?.removeEventListener('scroll', update);
-  }, []);
+  }, [activeNav]);
   useEffect(() => {
     const scroller = runtime ? page.current?.querySelector('.mobile-scroll') : window;
     const onScroll = () => setShowTop(runtime ? (scroller as HTMLElement).scrollTop > 500 : window.scrollY > 500);
@@ -62,20 +65,20 @@ export default function Home({ runtime = false }: { runtime?: boolean }) {
   const titles: Record<Exclude<Panel, null>, string> = { location: '选择服务地区', search: '查找企业服务', service: '服务介绍', support: '企服象客服', cart: '购物车', tools: '企业工具箱', account: '我的', article: '资讯详情', news: '资讯公告', menu: '关于企服象' };
   const productCard = (p: Product) => <button className="product-card" key={p.id} onClick={() => openProduct(p)} aria-label={`查看${p.title}`}><img src={img(p.image)} alt={p.title} loading="lazy" width="320" height="220" /><div className="product-info"><h3>{p.title}</h3><p>{p.subtitle}</p><div className="product-bottom"><span className="price"><small>¥</small>{p.price}</span><span className="social-proof">{p.proof}</span></div></div></button>;
   const content = <>
-    <div className="hero-wrap" ref={hero}><Carousel className="hero-carousel" contentClassName="hero-track" ariaLabel="企服象服务轮播"><button className="hero-slide" onClick={() => openSearch()} aria-label="了解企服象服务"><img src={img('hero-reference.webp')} alt={headlines[0]} fetchPriority="high" width="1200" height="520" /></button></Carousel><div className="hero-dots">{headlines.map((_, i) => <button key={i} className={slide === i ? 'active' : ''} aria-label={`切换到第${i + 1}张轮播`} aria-current={slide === i} onClick={() => { const node = hero.current?.querySelector('.mobile-carousel'); node?.scrollTo({ left: node.clientWidth * i, behavior: 'smooth' }); }} />)}</div></div>
+    <div className="hero-wrap" ref={hero}><Carousel className="hero-carousel" contentClassName="hero-track" ariaLabel="企服象服务轮播"><>{heroImages.map((file, i) => <button className="hero-slide" key={file} onClick={() => openSearch()} aria-label={headlines[i]}><img src={img(file)} alt={headlines[i]} fetchPriority={i === 0 ? "high" : "auto"} width="1200" height="560" /></button>)}</></Carousel><div className="hero-dots">{headlines.map((_, i) => <button key={i} className={slide === i ? 'active' : ''} aria-label={`切换到第${i + 1}张轮播`} aria-current={slide === i} onClick={() => { const node = hero.current?.querySelector('.mobile-carousel'); node?.scrollTo({ left: node.clientWidth * i, behavior: 'smooth' }); }} />)}</div></div>
     <div className="page-sections">
       <button className="activity" onClick={() => { setArticle(articles[0]); show('article'); }}><Bell size={18} weight="fill" /><span>40分钟前 135****3204 申请了1份 检测报告</span><CaretRight size={15} /></button>
       <Dashboard />
-      <section className="panel category-panel" aria-label="企业服务分类"><div className="category-grid">{categories.map(c => { return <button key={c.name} onClick={() => openSearch(c.name)}><span className="category-icon"><img src={img(`icon-soft-${glassIcons[c.icon]}.webp`)} alt="" width="64" height="64" /></span><span>{c.name}</span></button>; })}</div></section>
+      <section className="panel category-panel" aria-label="企业服务分类"><div className="category-grid">{categories.map(c => { return <button key={c.name} onClick={() => openSearch(c.name)}><span className="category-icon"><img src={img(c.icon === 'shield' ? 'icon-soft-shield-flat.png' : `icon-soft-${glassIcons[c.icon]}.webp`)} alt="" width="64" height="64" /></span><span>{c.name}</span></button>; })}</div></section>
       <section className="panel services" id="services"><SectionTitle title="热门服务" onMore={() => openSearch()} /><div className="product-grid">{products.map(productCard)}</div></section>
       <section className="panel news" id="news"><SectionTitle title="资讯公告" onMore={() => show('news')} more="全部" /><div className="news-tabs" role="tablist" aria-label="资讯分类">{['热门资讯', '知识科普'].map(tab => <button role="tab" aria-selected={newsTab === tab} className={newsTab === tab ? 'active' : ''} key={tab} onClick={() => setNewsTab(tab)}>{tab}</button>)}</div><div role="tabpanel" aria-label={newsTab}>{articles.filter(a => a.type === newsTab).slice(0,4).map(a => <button className="news-item" key={a.id} onClick={() => { setArticle(a); show('article'); }}><div className="news-copy"><h3>{a.title}</h3><p>{a.desc}</p><small><span><Eye size={13} />{a.views}</span><time>2026-{a.date}</time></small></div></button>)}</div></section>
-      <section className="panel enterprise" id="enterprise"><div className="section-heading"><h2>企业服务</h2></div><div className="enterprise-tabs" role="tablist" aria-label="企业发展阶段">{stages.map(s => <button role="tab" key={s.title} aria-selected={stageTab === s.title} className={stageTab === s.title ? 'active' : ''} onClick={() => setStageTab(s.title)}>{s.title}</button>)}</div><div className="enterprise-cards" role="tabpanel" aria-label={stageTab}>{stages.find(s => s.title === stageTab)?.cards.map((c, i) => <button className={`enterprise-card enterprise-card-${i}`} key={c.title} onClick={() => openSearch()}><h3>{c.title}</h3><p>{c.desc}</p><span>查看全部 <CaretRight size={11} /></span><img className="enterprise-art" src={img(`icon-soft-${glassIcons[c.icon] ?? 'permit'}.webp`)} alt="" width="58" height="58" /></button>)}</div></section>
+      <section className="panel enterprise" id="enterprise"><div className="section-heading"><h2>企业服务</h2></div><div className="enterprise-tabs" role="tablist" aria-label="企业发展阶段">{stages.map(s => <button role="tab" key={s.title} aria-selected={stageTab === s.title} className={stageTab === s.title ? 'active' : ''} onClick={() => setStageTab(s.title)}>{s.title}</button>)}</div><div className="enterprise-cards" role="tabpanel" aria-label={stageTab}>{stages.find(s => s.title === stageTab)?.cards.map((c, i) => <button className={`enterprise-card enterprise-card-${i}`} key={c.title} onClick={() => openSearch()}><h3>{c.title}</h3><p>{c.desc}</p><span>查看全部 <CaretRight size={11} /></span><EnterpriseIcon index={stages.findIndex(s => s.title === stageTab) * 3 + i} /></button>)}</div></section>
       <footer className="page-footer"><div className="footer-brand"><ShieldCheck size={20} />企服象</div><p>专业服务 · 助力企业发展</p></footer>
     </div>
   </>;
   return <div className={`qfx-app ${runtime ? 'qfx-runtime' : 'qfx-h5'}`} ref={page}>
     <header className="topbar"><button className="location-button" onClick={() => show('location')}>{location}<CaretDown size={12} /></button><button className="search-trigger" onClick={() => openSearch()}><MagnifyingGlass size={20} /><span>搜索</span></button><div className="wechat-capsule"><button aria-label="更多信息" onClick={() => show('menu')}><DotsThree size={24} weight="bold" /></button><button aria-label="回到首页顶部" onClick={goTop}><Record size={22} weight="bold" /></button></div></header>
-    {runtime ? <MobileScroll className="qfx-scroll"><main className="qfx-content">{content}</main></MobileScroll> : <main className="qfx-content">{content}</main>}
+    {runtime ? <MobileScroll className="qfx-scroll"><main className="qfx-content">{activeNav === 'home' ? content : <section className="nav-empty-page" aria-label={{home:'首页',tools:'工具箱',support:'客服',cart:'购物车',account:'我的'}[activeNav]} />}</main></MobileScroll> : <main className="qfx-content">{activeNav === 'home' ? content : <section className="nav-empty-page" aria-label={{home:'首页',tools:'工具箱',support:'客服',cart:'购物车',account:'我的'}[activeNav]} />}</main>}
     <nav className="bottom-nav" aria-label="主导航">{([
       { name: 'home', label: '首页', target: null },
       { name: 'tools', label: '工具箱', target: 'tools' },
@@ -83,13 +86,13 @@ export default function Home({ runtime = false }: { runtime?: boolean }) {
       { name: 'cart', label: '购物车', target: 'cart' },
       { name: 'account', label: '我的', target: 'account' },
     ] as { name: NavName; label: string; target: Panel }[]).map(item => {
-      const active = item.target === null ? !['tools', 'support', 'cart', 'account'].includes(panel ?? '') : panel === item.target;
-      return <button key={item.name} aria-current={active ? 'page' : undefined} className={`${active ? 'nav-active' : ''} ${item.name === 'support' ? 'support-tab' : ''} ${item.name === 'cart' ? 'cart-tab' : ''}`} onClick={() => { if (item.target) show(item.target); else { close(); goTop(); } }}>
+      const active = activeNav === item.name;
+      return <button key={item.name} aria-current={active ? 'page' : undefined} className={`${active ? 'nav-active' : ''} ${item.name === 'support' ? 'support-tab' : ''} ${item.name === 'cart' ? 'cart-tab' : ''}`} onClick={() => { setPanel(null); setActiveNav(item.name); goTop(); }}>
         {item.name === 'support' ? <span className="support-key"><NavIcon name={item.name} active={active} /><span>{item.label}</span></span> : <><NavIcon name={item.name} active={active} /><span>{item.label}</span></>}
         {item.name === 'cart' && cartCount > 0 && <b>{cartCount}</b>}
       </button>;
     })}</nav>
-    {showTop && <button className="back-top" onClick={goTop} aria-label="返回顶部"><ArrowUp size={19} /></button>}
+    {showTop && activeNav === 'home' && <button className="back-top" onClick={goTop} aria-label="返回顶部"><ArrowUp size={19} /></button>}
     {notice && <div className="toast" role="status"><CheckCircle size={18} />{notice}</div>}
     <PanelBody runtime={runtime} title={panel ? titles[panel] : ''} open={!!panel} close={close}>
       {panel === 'location' && <><p className="muted panel-intro">当前服务城市 · 武汉市</p><div className="location-grid">{['武昌区', '江岸区', '江汉区', '硚口区', '汉阳区', '洪山区', '青山区', '东西湖区'].map(v => <button className={location === v ? 'selected' : ''} key={v} onClick={() => { setLocation(v); close(); }}>{v}{location === v && <CheckCircle size={16} />}</button>)}</div></>}
