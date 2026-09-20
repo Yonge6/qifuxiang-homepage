@@ -1,33 +1,176 @@
-// Demo homepage content. Replace provisional categories/articles with approved client data.
+// Content transcribed from the live mini-program and user-provided captures on 2026-09-20.
+// This is a captured snapshot, not a live backend connection.
 export const categories = [
   { name: '体系认证', icon: 'shield', keywords: '认证' },
-  { name: '工商代办', icon: 'building', keywords: '工商' },
   { name: '政策补贴', icon: 'document', keywords: '政策' },
   { name: '科技申报', icon: 'bulb', keywords: '科技' },
-  { name: '财税服务', icon: 'receipt', keywords: '财税' },
-  { name: '知识产权', icon: 'copyright', keywords: '商标' },
-  { name: '资质许可', icon: 'certificate', keywords: '许可' },
-  { name: '法律服务', icon: 'scales', keywords: '法律' },
 ];
 export const products = [
-  { id: 1, title: '消防特种许可', subtitle: '专业高效 · 办理指导', image: 'certification.webp', price: '0.1', proof: '56 人看过', category: '资质许可', desc: '提供特种设备许可相关的材料梳理、申报流程咨询与办理指导。具体办理范围和条件，以服务顾问确认及主管部门要求为准。' },
-  { id: 2, title: '网络文化经营许可证', subtitle: '专业团队 · 精准辅导', image: 'culture.webp', price: '0.1', proof: '已售 100+', category: '资质许可', desc: '面向网络文化经营相关企业，提供资质条件咨询、材料准备和申报流程指导。' },
-  { id: 3, title: '特种设备生产许可证申报服务', subtitle: '材料梳理 · 流程指导', image: 'certification.webp', price: '0.1', proof: '56 人看过', category: '资质许可', desc: '根据企业实际业务，梳理许可申报所需资料与办理步骤，协助企业有序准备。' },
-  { id: 4, title: '网络文化经营许可证办理与变更', subtitle: '业务咨询 · 全程跟进', image: 'culture.webp', price: '0.1', proof: '已售 100+', category: '资质许可', desc: '提供网络文化经营许可证办理、变更相关的业务咨询与材料准备指导。' },
-  { id: 5, title: 'ISO 三体系认证咨询服务', subtitle: '体系梳理 · 认证辅导', image: 'certification.webp', price: '0.1', proof: '56 人看过', category: '体系认证', desc: '围绕质量、环境与职业健康安全管理体系，协助企业梳理管理文件与认证准备工作。' },
-  { id: 6, title: '网络文化经营资质咨询服务', subtitle: '一对一咨询 · 需求梳理', image: 'culture.webp', price: '0.1', proof: '已售 100+', category: '资质许可', desc: '协助企业梳理经营范围和业务需求，了解相关资质办理流程。' },
+  {
+    "id": 1,
+    "title": "消防特种许可 江西 莱西认证",
+    "subtitle": "莱西认证 特种设备许可 曳引驱动乘客…",
+    "image": "live-fire.webp",
+    "price": "0.1",
+    "proof": "",
+    "category": "",
+    "desc": "莱西认证 特种设备许可 曳引驱动乘客…"
+  },
+  {
+    "id": 2,
+    "title": "天使 / VC 融资对接",
+    "subtitle": "天使 / VC 融资对接",
+    "image": "live-vc.webp",
+    "price": "0.1",
+    "proof": "已售3",
+    "category": "",
+    "desc": "天使 / VC 融资对接"
+  },
+  {
+    "id": 3,
+    "title": "招投标全套资料代办",
+    "subtitle": "标书代制作招标投标文件公司代采购…",
+    "image": "live-bid.webp",
+    "price": "0.1",
+    "proof": "已售3",
+    "category": "",
+    "desc": "标书代制作招标投标文件公司代采购…"
+  },
+  {
+    "id": 4,
+    "title": "财务审计年度投标报告评专项高新贷款报表",
+    "subtitle": "审计咨询公司投标报告年度财务报表…",
+    "image": "live-audit.webp",
+    "price": "0.1",
+    "proof": "已售3",
+    "category": "",
+    "desc": "审计咨询公司投标报告年度财务报表…"
+  }
 ];
 export type Product = typeof products[number];
 export const articles = [
-  { id: 1, type: '热门资讯', label: '平台公告', title: '企服象服务指南：从需求咨询到材料准备', desc: '找服务、问顾问、准备资料，让企业办事更有条理。', date: '09-20', image: 'hero.webp', body: ['在首页选择相应业务分类，或通过搜索查找您需要的企业服务。', '办理前，建议先与服务顾问沟通企业情况、服务范围和材料要求，再确认后续流程。', '本页面为界面设计展示，文章为示例内容，正式资讯将由平台提供。'] },
-  { id: 2, type: '热门资讯', label: '服务动态', title: '企业资质申报前，这些准备工作要做好', desc: '提前梳理基础资料，沟通办理范围与时间安排。', date: '09-18', image: '', body: ['提前整理企业基础信息、现有资质及业务需求，有助于服务顾问了解实际情况。', '不同业务的申请条件和材料要求存在差异，请以主管部门和服务机构确认的信息为准。', '设计展示内容，不构成申报条件或办理结果承诺。'] },
-  { id: 3, type: '知识科普', label: '认证知识', title: '认识企业管理体系认证', desc: '了解质量、环境与职业健康安全管理体系。', date: '09-16', image: '', body: ['管理体系认证涉及企业管理制度、业务流程与持续改进等方面。', '本页为知识栏目排版示例，正式文章将在确认后替换。'] },
-  { id: 4, type: '知识科普', label: '办事指南', title: '如何选择适合企业的服务？', desc: '从企业阶段与当前需求出发，找到合适的服务。', date: '09-15', image: '', body: ['先明确企业当前的业务目标，再梳理需要解决的问题。', '可以通过首页企业服务模块，按照企业所处阶段查看相关服务方向。'] },
+  {
+    "id": 1,
+    "type": "热门资讯",
+    "label": "",
+    "title": "嘉立创全资子公司拟15亿投建珠海生产基地",
+    "desc": "8月27日，深圳嘉立创科技集团股份有限公司公告，其全资子公司先进电子（珠海）有限公司拟在珠海市斗门区富山工业区投资PCB、PCBA及电子元器件业务的生产基地，总投资约15亿元，…",
+    "date": "08-27",
+    "views": 1,
+    "image": "",
+    "body": [
+      "8月27日，深圳嘉立创科技集团股份有限公司公告，其全资子公司先进电子（珠海）有限公司拟在珠海市斗门区富山工业区投资PCB、PCBA及电子元器件业务的生产基地，总投资约15亿元，…"
+    ]
+  },
+  {
+    "id": 2,
+    "type": "热门资讯",
+    "label": "",
+    "title": "苹果发布全球首款2nm芯片 性能AI能力双突破",
+    "desc": "8月26日，苹果推出新款Mac mini与Mac Studio，搭载全球首款2nm芯片M6及M5 Ultra，性能与AI能力实现颠覆性跃升。M6芯片采用2nm制程，12核CPU含2颗超级核心、4颗性能核心和6…",
+    "date": "08-27",
+    "views": 1,
+    "image": "",
+    "body": [
+      "8月26日，苹果推出新款Mac mini与Mac Studio，搭载全球首款2nm芯片M6及M5 Ultra，性能与AI能力实现颠覆性跃升。M6芯片采用2nm制程，12核CPU含2颗超级核心、4颗性能核心和6…"
+    ]
+  },
+  {
+    "id": 3,
+    "type": "热门资讯",
+    "label": "",
+    "title": "代表近一点 企业暖一点",
+    "desc": "今年，是广东省人大常委会连续第9年组织开展代表主题活动，“助力优化营商环境·人大代表在行动”主题活动正向纵深推进。日前，省人大常委会组织开展代表主题活动集中采访，记者跟随代表…",
+    "date": "08-27",
+    "views": 1,
+    "image": "",
+    "body": [
+      "今年，是广东省人大常委会连续第9年组织开展代表主题活动，“助力优化营商环境·人大代表在行动”主题活动正向纵深推进。日前，省人大常委会组织开展代表主题活动集中采访，记者跟随代表…"
+    ]
+  },
+  {
+    "id": 4,
+    "type": "热门资讯",
+    "label": "",
+    "title": "狠抓创新加快企业智能化数字化转型",
+    "desc": "营商环境是城市的核心竞争力和发展“软实力”。在近日举行的“助力优化营商环境·人大代表在行动”集中履职月活动中，惠州市人大常委会组织惠州市的全国及省、市人大代表聚焦优化营商环境专题…",
+    "date": "08-27",
+    "views": 1,
+    "image": "",
+    "body": [
+      "营商环境是城市的核心竞争力和发展“软实力”。在近日举行的“助力优化营商环境·人大代表在行动”集中履职月活动中，惠州市人大常委会组织惠州市的全国及省、市人大代表聚焦优化营商环境专题…"
+    ]
+  }
 ];
+articles.push(...[
+  {
+    "id": 5,
+    "type": "知识科普",
+    "label": "",
+    "title": "企业信用等级证书为啥是企业招标中的必要项",
+    "desc": "企业信用等级是评估企业履约能力和信用风险的管理工具，中国采用的主要标准包括国际通行的“四等十级制”（AAA至D级）和国内常见的“三等九级制”（AAA至C级）。不同管理机构根据行业…",
+    "date": "08-27",
+    "views": 1,
+    "image": "",
+    "body": [
+      "企业信用等级是评估企业履约能力和信用风险的管理工具，中国采用的主要标准包括国际通行的“四等十级制”（AAA至D级）和国内常见的“三等九级制”（AAA至C级）。不同管理机构根据行业…"
+    ]
+  },
+  {
+    "id": 6,
+    "type": "知识科普",
+    "label": "",
+    "title": "为什么说ISO 27001可以为企业云计算安全保驾护航",
+    "desc": "随着在世界范围内，信息化水平的不断发展，信息安全逐渐成为人们关注的焦点，世界范围内的各个机构、组织、个人都在探寻如何保障信息安全的问题。英国、美国、挪威、瑞典、芬兰、澳…",
+    "date": "08-27",
+    "views": 1,
+    "image": "",
+    "body": [
+      "随着在世界范围内，信息化水平的不断发展，信息安全逐渐成为人们关注的焦点，世界范围内的各个机构、组织、个人都在探寻如何保障信息安全的问题。英国、美国、挪威、瑞典、芬兰、澳…"
+    ]
+  },
+  {
+    "id": 7,
+    "type": "知识科普",
+    "label": "",
+    "title": "CCC认证为什么称为一般指中国强制性产品认证",
+    "desc": "中国强制性产品认证，英文名称China Compulsory Certification，简称CCC认证或3C认证。该认证是中国政府遵循世贸组织规则和国际通行规则建立的合格评定体系，旨在保护消费者人身和…",
+    "date": "08-27",
+    "views": 1,
+    "image": "",
+    "body": [
+      "中国强制性产品认证，英文名称China Compulsory Certification，简称CCC认证或3C认证。该认证是中国政府遵循世贸组织规则和国际通行规则建立的合格评定体系，旨在保护消费者人身和…"
+    ]
+  },
+  {
+    "id": 8,
+    "type": "知识科普",
+    "label": "",
+    "title": "ISO9001质量管理体系认证有什么用?",
+    "desc": "ISO9001质量管理体系认证是国际标准化组织（ISO）制定的质量管理体系标准。ISO是世界上主要的非政府间国际标准化机构，总部位于瑞士日内瓦。其下属的ISO/TC176技术委员会于1987…",
+    "date": "08-27",
+    "views": 1,
+    "image": "",
+    "body": [
+      "ISO9001质量管理体系认证是国际标准化组织（ISO）制定的质量管理体系标准。ISO是世界上主要的非政府间国际标准化机构，总部位于瑞士日内瓦。其下属的ISO/TC176技术委员会于1987…"
+    ]
+  }
+]);
 export type Article = typeof articles[number];
 export const stages = [
-  { title: '初创筹备', en: 'START', desc: '从一个想法，到一家企业', icon: 'rocket', tags: ['工商注册', '财税服务', '商标注册'] },
-  { title: '稳步成长', en: 'GROW', desc: '完善企业能力，迈向新阶段', icon: 'chart', tags: ['体系认证', '资质许可', '科技申报'] },
-  { title: '成熟发展', en: 'EXPAND', desc: '夯实经营基础，拓展更多可能', icon: 'buildings', tags: ['知识产权', '政策补贴', '法律服务'] },
-  { title: '转型升级', en: 'EVOLVE', desc: '聚焦新的方向，开启下一程', icon: 'trend', tags: ['科技创新', '管理咨询', '企业变更'] },
+  { title: '初创期', cards: [
+    { title: '工商变更', desc: '工商变注册、工商…', icon: 'building' },
+    { title: '企业信用信证', desc: '企业AAA级信用评定', icon: 'certificate' },
+    { title: '财务审计', desc: '财务咨询、财务审计', icon: 'receipt' },
+  ] },
+  { title: '成长期', cards: [
+    { title: '财税升级', desc: '财税升级、税务筹划', icon: 'receipt' },
+    { title: '人力标准化', desc: '人力资源合规、人…', icon: 'building' },
+    { title: '政策申报', desc: '政策解读、政策申报', icon: 'document' },
+  ] },
+  { title: '成熟期', cards: [
+    { title: '高端产业认证', desc: '高端社团对接、高…', icon: 'certificate' },
+    { title: '国际合规', desc: '国际化合规、国际…', icon: 'building' },
+    { title: '资产合规', desc: '资产合规、资产优…', icon: 'receipt' },
+  ] },
 ];

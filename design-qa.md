@@ -1,8 +1,23 @@
+# Current revision QA — 2026-09-20
+
+Result: local checks passed; deployment readback pending.
+
+- Source: live WeChat mini-program after re-login; audit in docs/live-content-audit-2026-09-20.md.
+- Four actual popular services, two-column grid; both news tabs have four source articles; all three enterprise stage tabs have three actual cards.
+- 390px screenshot reviewed: light blue/glass hero, real source product images, source text news list, three-card enterprise module, prominent round customer-service tab. Header and footer remain fixed.
+- 320px and 390px: no horizontal page overflow. No broken images. Knowledge and mature tabs verified via browser interaction.
+- Runtime preservation: 28 protected files pass. TypeScript and H5 production build pass.
+- Dynamic source values are dated snapshots. Product/consultation/account dialogs remain explicitly frontend demos. Full article bodies are not fabricated.
+
+## Previous revision evidence (historical)
+
 # 企服象首页验收
+
+当前修订（2026-09-20）被真实内容核查阻断：微信要求重新登录，知识科普和成熟期内容尚未读取。以下其余记录属于已发布旧版；本轮不沿用旧版 passed 结论。详见 docs/live-content-audit-2026-09-20.md。
 
 Date: 2026-09-20
 
-final result: passed
+final result: blocked
 
 ## Source visual truth
 
