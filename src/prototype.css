@@ -498,3 +498,21 @@ html { background:#e9eff7; }
 .enterprise-group:nth-child(2) .enterprise-group-title h3::before{background:#756bd5}
 .enterprise-group:nth-child(3) .enterprise-group-title h3::before{background:#1ca3bc}
 .enterprise-group-title span{color:#9ba8b8;font-size:10px;font-variant-numeric:tabular-nums}
+
+/* Compact nine-item overview: three vertical cards per stage row. */
+.enterprise-groups{gap:14px;margin-top:14px}
+.enterprise-group{gap:8px}
+.enterprise-group .enterprise-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.enterprise-group .enterprise-card{display:flex;min-height:138px;padding:10px 7px 9px;align-items:center;text-align:center;border-radius:12px}
+.enterprise-group .enterprise-art{order:-1;width:48px;height:48px;flex:none;margin:0 auto 4px}
+.enterprise-group .enterprise-card h3{min-height:36px;margin:0;font-size:12px;line-height:1.45;text-align:center;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.enterprise-group .enterprise-card p{min-height:15px;margin:2px 0 0;font-size:10px;line-height:1.45;text-align:center;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;display:block;width:100%}
+.enterprise-group .enterprise-card>span:not(.enterprise-art){display:none}
+.enterprise-group .enterprise-card::before{width:125px;height:125px;right:-72px;top:-67px}
+.enterprise-group .enterprise-card::after{right:8px;bottom:5px;width:52px;height:18px}
+@media(max-width:359px){.enterprise-group .enterprise-cards{gap:6px}.enterprise-group .enterprise-card{min-height:132px;padding:9px 5px 8px}.enterprise-group .enterprise-art{width:44px;height:44px}.enterprise-group .enterprise-card h3{font-size:11px}}
+
+/* Keep every commerce image anchored to the top edge of its grid row. */
+.product-grid{align-items:start}
+.product-card{align-self:start}
+.product-tags{min-height:42px}
