@@ -3,7 +3,7 @@ import EnterpriseIcon from './EnterpriseIcon';
 import NavIcon, { type NavName } from './NavIcon';
 import { useEffect, useRef, useState, type ComponentType, type InputHTMLAttributes, type ReactNode } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import { ShieldCheck, Buildings, BuildingOffice, FileArrowUp, Lightbulb, Receipt, Copyright, Certificate, Scales, House, SquaresFour, Headset, ShoppingCart, User, Bell, MagnifyingGlass, CaretDown, CaretRight, X, DotsThree, Record, ArrowUp, ArrowRight, CheckCircle, RocketLaunch, ChartLineUp, TrendUp, Minus, Plus, Trash, PaperPlaneTilt, ChatCircleText, MapPin, Info, Eye } from '@phosphor-icons/react';
+import { ShieldCheck, Buildings, BuildingOffice, FileArrowUp, Lightbulb, Receipt, Copyright, Certificate, Scales, House, SquaresFour, Headset, ShoppingCart, User, Bell, MagnifyingGlass, CaretDown, CaretRight, X, DotsThree, Record, ArrowUp, ArrowRight, ArrowLeft, CheckCircle, RocketLaunch, ChartLineUp, TrendUp, Minus, Plus, Trash, PaperPlaneTilt, ChatCircleText, MapPin, Info, Eye } from '@phosphor-icons/react';
 import { BottomSheet, Carousel, KeyboardInput, MobileScroll } from './mobile';
 import { articles, categories, products, stages, type Article, type Product } from './content';
 const img = (name: string) => `${import.meta.env.BASE_URL}images/${name}`;
@@ -29,6 +29,8 @@ function PanelBody({ runtime, title, open, close, children }: { runtime: boolean
 export default function Home({ runtime = false }: { runtime?: boolean }) {
   const [panel, setPanel] = useState<Panel>(null);
   const [activeNav, setActiveNav] = useState<NavName>('home');
+  const [homeView, setHomeView] = useState<'home' | 'certification'>('home');
+  const [certTab, setCertTab] = useState('体系认证1');
   const [location, setLocation] = useState('武昌区');
   const [query, setQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('全部');
@@ -96,12 +98,46 @@ export default function Home({ runtime = false }: { runtime?: boolean }) {
   const send = (text: string) => { if (!text.trim()) return; setChat(c => [...c, { from: 'user', text: text.trim() }, { from: 'service', text: '已在当前演示中记录您的咨询。正式上线后，这里会连接企服象客服，为您确认办理条件、服务内容和材料清单。' }]); setMessage(''); };
   const titles: Record<Exclude<Panel, null>, string> = { location: '选择服务地区', search: '查找企业服务', service: '服务介绍', support: '企服象客服', cart: '购物车', tools: '企业工具箱', account: '我的', article: '资讯详情', news: '资讯公告', menu: '关于企服象' };
   const productCard = (p: Product) => <button className="product-card" key={p.id} onClick={() => openProduct(p)} aria-label={`查看${p.title}`}><img src={img(p.image)} alt={p.title} loading="lazy" width="320" height="320" /><div className="product-info"><h3>{p.title}</h3><div className="product-tags" aria-label="服务标签">{p.tags.map(tag => <span key={tag}>{tag}</span>)}</div><div className="product-bottom"><span className="price"><small>¥</small>{p.price}<small className="price-suffix">起</small></span><span className="social-proof">{p.proof}</span></div></div></button>;
+  const consultTool = (name: string) => { setChat([{ from: 'user', text: `我想了解：${name}` }]); show('support'); };
+  const commonTools = [
+    { name: '查企业', note: '企业信息查询', Icon: Buildings, action: () => openSearch() },
+    { name: '提需求', note: '匹配服务顾问', Icon: ChatCircleText, action: () => consultTool('提交企业服务需求') },
+    { name: '执照注销', note: '了解办理流程', Icon: Certificate, action: () => consultTool('执照注销') },
+    { name: '登记范本', note: '常用材料参考', Icon: Receipt, action: () => consultTool('登记范本') },
+  ];
+  const assessments = [
+    { name: '科小评测', note: '快速判断科技型中小企业申报条件', Icon: ChartLineUp },
+    { name: '美国出签率评测', note: '根据基础信息生成参考评测', Icon: RocketLaunch },
+  ];
+  const toolboxContent = <div className="toolbox-page">
+    <section className="toolbox-hero" aria-labelledby="toolbox-title">
+      <div className="toolbox-hero-copy"><span>企服象 · 企业经营助手</span><h1 id="toolbox-title">企业服务工具箱</h1><p>查询、办理、评测，一站快速完成</p></div>
+      <div className="toolbox-hero-art" aria-hidden="true"><div className="toolbox-orbit"><span><SquaresFour size={35} weight="fill" /></span></div><i className="toolbox-float toolbox-float-a"><ShieldCheck size={20} weight="fill" /></i><i className="toolbox-float toolbox-float-b"><Lightbulb size={20} weight="fill" /></i><i className="toolbox-float toolbox-float-c"><FileArrowUp size={19} weight="fill" /></i></div>
+    </section>
+    <div className="toolbox-sections">
+      <section className="toolbox-panel" aria-labelledby="common-tools-title"><div className="toolbox-heading"><div><span>01</span><h2 id="common-tools-title">常用工具</h2></div><p>高频企业服务入口</p></div><div className="toolbox-common-grid">{commonTools.map(({ name, note, Icon, action }, index) => <button key={name} onClick={action}><span className={`toolbox-icon toolbox-icon-${index}`}><Icon size={28} weight="duotone" /></span><strong>{name}</strong><small>{note}</small></button>)}</div></section>
+      <section className="toolbox-panel toolbox-assessment" aria-labelledby="assessment-title"><div className="toolbox-heading"><div><span>02</span><h2 id="assessment-title">评测工具</h2></div><button onClick={() => flash('评测记录功能即将开放')}>我的评测<CaretRight size={13} /></button></div><div className="assessment-grid">{assessments.map(({ name, note, Icon }, index) => <button key={name} onClick={() => flash(`${name}功能即将开放`)}><span className={`assessment-icon assessment-icon-${index}`}><Icon size={30} weight="duotone" /></span><div><strong>{name}</strong><small>{note}</small></div><ArrowRight size={16} /></button>)}</div></section>
+      <button className="toolbox-consult" onClick={() => consultTool('工具箱服务咨询')}><span><Headset size={24} weight="duotone" /></span><div><strong>没有找到需要的工具？</strong><small>告诉顾问您的具体需求</small></div><CaretRight size={17} /></button>
+    </div>
+  </div>;
+  const certificationServices = [
+    { name: '厂房消防一证', note: '厂房消防一证', price: '0.01', sold: '已售666888', icon: 0 },
+    { name: '道路运输经营许可证', note: '道路运输经营许可证', price: '0.10', sold: '已售666888', icon: 6 },
+    { name: '企业官网搭建', note: '企业官网搭建', price: '0.10', sold: '已售666888', icon: 2 },
+    { name: 'CMMI 基础认证', note: 'CMMI 基础认证', price: '0.10', sold: '已售666888', icon: 1 },
+    { name: '应收账款催收', note: '应收账款催收', price: '0.10', sold: '已售666888', icon: 7 },
+  ];
+  const certificationContent = <div className="certification-page">
+    <section className="certification-hero" aria-labelledby="certification-title"><button className="certification-back" aria-label="返回首页" onClick={() => { setHomeView('home'); goTop(); }}><ArrowLeft size={21} /></button><div className="certification-copy"><span>企服象 · 认证服务中心</span><h1 id="certification-title">企业认证，一站办妥</h1><p>覆盖资质、体系与科技项目申报服务</p></div><div className="certification-mark" aria-hidden="true"><ShieldCheck size={55} weight="duotone" /><i><CheckCircle size={19} weight="fill" /></i></div></section>
+    <div className="certification-sections"><section className="certification-nav" aria-label="服务分类">{categories.slice(0,3).map(c => <button className={c.name === '体系认证' ? 'active' : ''} key={c.name} onClick={() => c.name === '体系认证' ? undefined : openSearch(c.name)}><span><img src={img(c.icon === 'shield' ? 'icon-soft-shield-flat.png' : `icon-soft-${glassIcons[c.icon]}.webp`)} alt="" /></span><strong>{c.name}</strong></button>)}<button className="certification-all" onClick={() => openSearch()}><SquaresFour size={23} /><strong>全部</strong></button></section>
+      <section className="certification-catalog"><div className="certification-tabs" role="tablist" aria-label="体系认证子类">{['体系认证1','体系认证2','体系认证3','体系认证4'].map(tab => <button role="tab" aria-selected={certTab === tab} className={certTab === tab ? 'active' : ''} key={tab} onClick={() => setCertTab(tab)}>{tab}</button>)}</div><div className="certification-summary"><div><span>认证服务</span><strong>共 49 项服务</strong></div><button onClick={() => openSearch('体系认证')}>全部<CaretDown size={13} /></button></div><div className="certification-list">{certificationServices.map((service, index) => <button className={`certification-service certification-service-${index}`} key={service.name} onClick={() => consultTool(service.name)}><span className="certification-service-art"><img src={img(`enterprise-${service.icon}.webp`)} alt="" /></span><div className="certification-service-copy"><h3>{service.name}</h3><p>{service.note}</p><div><strong><small>¥</small>{service.price}<small>起</small></strong><span>{service.sold}</span></div></div><CaretRight size={16} /></button>)}</div></section></div>
+  </div>;
   const content = <>
     <div className="hero-wrap" ref={hero}><Carousel className="hero-carousel" contentClassName="hero-track" ariaLabel="企服象服务轮播"><>{heroImages.map((file, i) => <button className="hero-slide" key={file} onClick={() => openSearch()} aria-label={headlines[i]}><img src={img(file)} alt={headlines[i]} fetchPriority={i === 0 ? "high" : "auto"} width="1200" height="560" /></button>)}</></Carousel><div className="hero-dots">{headlines.map((_, i) => <button key={i} className={slide === i ? 'active' : ''} aria-label={`切换到第${i + 1}张轮播`} aria-current={slide === i} onClick={() => { const node = hero.current?.querySelector('.mobile-carousel'); node?.scrollTo({ left: node.clientWidth * i, behavior: 'smooth' }); }} />)}</div></div>
     <div className="page-sections">
       <button className="activity" onClick={() => { setArticle(articles[0]); show('article'); }}><Bell size={18} weight="fill" /><span>40分钟前 135****3204 申请了1份 检测报告</span><CaretRight size={15} /></button>
       <Dashboard />
-      <section className="panel category-panel" aria-label="企业服务分类"><div className="category-grid">{categories.map(c => { return <button key={c.name} onClick={() => openSearch(c.name)}><span className="category-icon"><img src={img(c.icon === 'shield' ? 'icon-soft-shield-flat.png' : `icon-soft-${glassIcons[c.icon]}.webp`)} alt="" width="64" height="64" /></span><span>{c.name}</span></button>; })}</div></section>
+      <section className="panel category-panel" aria-label="企业服务分类"><div className="category-grid">{categories.map(c => { return <button key={c.name} onClick={() => { if (c.name === '体系认证') { setHomeView('certification'); goTop(); } else openSearch(c.name); }}><span className="category-icon"><img src={img(c.icon === 'shield' ? 'icon-soft-shield-flat.png' : `icon-soft-${glassIcons[c.icon]}.webp`)} alt="" width="64" height="64" /></span><span>{c.name}</span></button>; })}</div></section>
       <section className="panel services" id="services"><SectionTitle title="热门服务" onMore={() => openSearch()} /><div className="product-grid">{products.map(productCard)}</div></section>
       <section className="panel news" id="news"><SectionTitle title="资讯公告" onMore={() => show('news')} more="全部" /><div className="news-tabs" role="tablist" aria-label="资讯分类">{['热门资讯', '知识科普'].map(tab => <button role="tab" aria-selected={newsTab === tab} className={newsTab === tab ? 'active' : ''} key={tab} onClick={() => setNewsTab(tab)}>{tab}</button>)}</div><div role="tabpanel" aria-label={newsTab}>{articles.filter(a => a.type === newsTab).slice(0,4).map(a => <button className={`news-item ${a.image ? 'has-cover' : 'no-cover'}`} key={a.id} onClick={() => { setArticle(a); show('article'); }}><h3 className="news-title">{a.title}</h3><div className="news-body">{a.image && <img className="news-cover" src={img(a.image)} alt="" width="164" height="164" />}<div className="news-copy"><p>{a.desc}</p><small><span><Eye size={13} />{a.views}</span><time>2026-{a.date}</time></small></div></div></button>)}</div></section>
       <section className="panel enterprise" id="enterprise"><div className="section-heading"><h2>企业服务</h2></div><div className="enterprise-groups">{stages.map((stage, stageIndex) => <section className="enterprise-group" key={stage.title} aria-labelledby={`stage-${stageIndex}`}><div className="enterprise-group-title"><h3 id={`stage-${stageIndex}`}>{stage.title}</h3></div><div className="enterprise-cards">{stage.cards.map((c, i) => <button className={`enterprise-card enterprise-card-${i}`} key={c.title} onClick={() => openSearch()}><h3>{c.title}</h3><p>{c.desc}</p><span>查看全部 <CaretRight size={11} /></span><EnterpriseIcon index={stageIndex * 3 + i} /></button>)}</div></section>)}</div></section>
@@ -110,7 +146,7 @@ export default function Home({ runtime = false }: { runtime?: boolean }) {
   </>;
   return <div className={`qfx-app ${runtime ? 'qfx-runtime' : 'qfx-h5'}`} ref={page}>
     <header className="topbar"><button className="location-button" onClick={() => show('location')}>{location}<CaretDown size={12} /></button><button className="search-trigger" onClick={() => openSearch()}><MagnifyingGlass size={20} /><span>搜索</span></button><div className="wechat-capsule"><button aria-label="更多信息" onClick={() => show('menu')}><DotsThree size={24} weight="bold" /></button><button aria-label="回到首页顶部" onClick={goTop}><Record size={22} weight="bold" /></button></div></header>
-    {runtime ? <MobileScroll className="qfx-scroll"><main className="qfx-content">{activeNav === 'home' ? content : <section className="nav-empty-page" aria-label={{home:'首页',tools:'工具箱',support:'客服',cart:'购物车',account:'我的'}[activeNav]} />}</main></MobileScroll> : <main className="qfx-content">{activeNav === 'home' ? content : <section className="nav-empty-page" aria-label={{home:'首页',tools:'工具箱',support:'客服',cart:'购物车',account:'我的'}[activeNav]} />}</main>}
+    {runtime ? <MobileScroll className="qfx-scroll"><main className="qfx-content">{activeNav === 'home' ? (homeView === 'certification' ? certificationContent : content) : activeNav === 'tools' ? toolboxContent : <section className="nav-empty-page" aria-label={{home:'首页',tools:'工具箱',support:'客服',cart:'购物车',account:'我的'}[activeNav]} />}</main></MobileScroll> : <main className="qfx-content">{activeNav === 'home' ? (homeView === 'certification' ? certificationContent : content) : activeNav === 'tools' ? toolboxContent : <section className="nav-empty-page" aria-label={{home:'首页',tools:'工具箱',support:'客服',cart:'购物车',account:'我的'}[activeNav]} />}</main>}
     <nav className="bottom-nav" aria-label="主导航">{([
       { name: 'home', label: '首页', target: null },
       { name: 'tools', label: '工具箱', target: 'tools' },
@@ -119,7 +155,7 @@ export default function Home({ runtime = false }: { runtime?: boolean }) {
       { name: 'account', label: '我的', target: 'account' },
     ] as { name: NavName; label: string; target: Panel }[]).map(item => {
       const active = activeNav === item.name;
-      return <button key={item.name} aria-current={active ? 'page' : undefined} className={`${active ? 'nav-active' : ''} ${item.name === 'support' ? 'support-tab' : ''} ${item.name === 'cart' ? 'cart-tab' : ''}`} onClick={() => { setPanel(null); setActiveNav(item.name); goTop(); }}>
+      return <button key={item.name} aria-current={active ? 'page' : undefined} className={`${active ? 'nav-active' : ''} ${item.name === 'support' ? 'support-tab' : ''} ${item.name === 'cart' ? 'cart-tab' : ''}`} onClick={() => { setPanel(null); setActiveNav(item.name); if (item.name === 'home') setHomeView('home'); goTop(); }}>
         {item.name === 'support' ? <span className="support-key"><NavIcon name={item.name} active={active} /><span>{item.label}</span></span> : <><NavIcon name={item.name} active={active} /><span>{item.label}</span></>}
         {item.name === 'cart' && cartCount > 0 && <b>{cartCount}</b>}
       </button>;
