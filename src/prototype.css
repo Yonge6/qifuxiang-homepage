@@ -625,3 +625,7 @@ html { background:#e9eff7; }
 .certification-list .certification-service .price{color:#ff5048;font-size:18px}
 .certification-list .certification-service .social-proof{color:#97a1b0;font-size:9px}
 .toolbox-page,.certification-page{padding-bottom:0}.toolbox-page>.page-footer,.certification-page>.page-footer{padding:24px 0 calc(112px + env(safe-area-inset-bottom))}
+.toolbox-topbar{background:linear-gradient(128deg,#176bd1,#2e86df);border-bottom-color:#ffffff21}
+.toolbox-topbar .location-button{color:#fff!important}.toolbox-topbar .location-button::after{background:#ffffff3d}
+.toolbox-topbar .search-trigger{border:1px solid #ffffff24;background:#ffffff1f;color:#eff8ff!important;box-shadow:inset 0 1px 0 #ffffff20}
+.toolbox-topbar .wechat-capsule{background:#fffffff2;box-shadow:0 5px 16px #07519c2a}
