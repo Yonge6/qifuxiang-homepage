@@ -16,7 +16,7 @@ export const products = [
     "id": 1,
     "title": "消防特种许可 江西 莱西认证",
     "subtitle": "莱西认证 特种设备许可 曳引驱动乘客…",
-    "image": "service-commerce-fire.webp",
+    "image": "generated/service-commerce-fire-square.png",
     "price": "0.1",
     "proof": "",
     "category": "",
@@ -26,7 +26,7 @@ export const products = [
     "id": 2,
     "title": "天使 / VC 融资对接",
     "subtitle": "天使 / VC 融资对接",
-    "image": "service-commerce-funding.webp",
+    "image": "generated/service-commerce-funding-square.png",
     "price": "0.1",
     "proof": "已售3",
     "category": "",
@@ -36,7 +36,7 @@ export const products = [
     "id": 3,
     "title": "招投标全套资料代办",
     "subtitle": "标书代制作招标投标文件公司代采购…",
-    "image": "service-commerce-tender.webp",
+    "image": "generated/service-commerce-tender-square.png",
     "price": "0.1",
     "proof": "已售3",
     "category": "",
@@ -46,7 +46,7 @@ export const products = [
     "id": 4,
     "title": "财务审计年度投标报告评专项高新贷款报表",
     "subtitle": "审计咨询公司投标报告年度财务报表…",
-    "image": "service-commerce-audit.webp",
+    "image": "generated/service-commerce-audit-square.png",
     "price": "0.1",
     "proof": "已售3",
     "category": "",
@@ -89,7 +89,7 @@ export const articles = [
     "desc": "今年，是广东省人大常委会连续第9年组织开展代表主题活动，“助力优化营商环境·人大代表在行动”主题活动正向纵深推进。日前，省人大常委会组织开展代表主题活动集中采访，记者跟随代表…",
     "date": "08-27",
     "views": 1,
-    "image": "culture.webp",
+    "image": "",
     "body": [
       "今年，是广东省人大常委会连续第9年组织开展代表主题活动，“助力优化营商环境·人大代表在行动”主题活动正向纵深推进。日前，省人大常委会组织开展代表主题活动集中采访，记者跟随代表…"
     ]
@@ -102,7 +102,7 @@ export const articles = [
     "desc": "营商环境是城市的核心竞争力和发展“软实力”。在近日举行的“助力优化营商环境·人大代表在行动”集中履职月活动中，惠州市人大常委会组织惠州市的全国及省、市人大代表聚焦优化营商环境专题…",
     "date": "08-27",
     "views": 1,
-    "image": "hero-growth.webp",
+    "image": "",
     "body": [
       "营商环境是城市的核心竞争力和发展“软实力”。在近日举行的“助力优化营商环境·人大代表在行动”集中履职月活动中，惠州市人大常委会组织惠州市的全国及省、市人大代表聚焦优化营商环境专题…"
     ]
@@ -117,7 +117,7 @@ articles.push(...[
     "desc": "企业信用等级是评估企业履约能力和信用风险的管理工具，中国采用的主要标准包括国际通行的“四等十级制”（AAA至D级）和国内常见的“三等九级制”（AAA至C级）。不同管理机构根据行业…",
     "date": "08-27",
     "views": 1,
-    "image": "",
+    "image": "certification.webp",
     "body": [
       "企业信用等级是评估企业履约能力和信用风险的管理工具，中国采用的主要标准包括国际通行的“四等十级制”（AAA至D级）和国内常见的“三等九级制”（AAA至C级）。不同管理机构根据行业…"
     ]
@@ -130,7 +130,7 @@ articles.push(...[
     "desc": "随着在世界范围内，信息化水平的不断发展，信息安全逐渐成为人们关注的焦点，世界范围内的各个机构、组织、个人都在探寻如何保障信息安全的问题。英国、美国、挪威、瑞典、芬兰、澳…",
     "date": "08-27",
     "views": 1,
-    "image": "",
+    "image": "hero-reference-clean.webp",
     "body": [
       "随着在世界范围内，信息化水平的不断发展，信息安全逐渐成为人们关注的焦点，世界范围内的各个机构、组织、个人都在探寻如何保障信息安全的问题。英国、美国、挪威、瑞典、芬兰、澳…"
     ]

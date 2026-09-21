@@ -474,8 +474,13 @@ html { background:#e9eff7; }
 .product-card>img{aspect-ratio:1 / 1;height:auto;object-fit:cover}
 .services .product-info p,.search-products .product-info p{display:block;width:max-content;max-width:100%;padding:3px 6px;border:1px solid #f3e5b8;border-radius:6px;background:#fff6d8;color:#927127;line-height:1.4}
 .price .price-suffix{margin:0 0 0 3px;font-family:inherit;font-size:11px;font-weight:500}
-.news-item>.news-cover{width:82px;height:82px;flex:none;object-fit:cover;object-position:center;border-radius:10px;margin-top:2px}
+.news-item{display:block}
+.news-title{margin:0 0 9px;font-size:var(--q-title-size);font-weight:600;line-height:1.55;color:#243b58}
+.news-body{display:flex;align-items:flex-start;gap:12px}
+.news-body>.news-cover{width:82px;height:82px;flex:none;object-fit:cover;object-position:center;border-radius:10px}
 .news-copy{min-width:0;flex:1}
+.news-copy p{margin-top:0}
+.news-item.no-cover .news-title{margin-bottom:5px}
 .hot-filter{display:block;margin:16px 0 14px}
 .filter-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
 .filter-heading strong{font-size:12px;color:#465a73;font-weight:600}
