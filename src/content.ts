@@ -63,7 +63,7 @@ export const articles = [
     "desc": "8月27日，深圳嘉立创科技集团股份有限公司公告，其全资子公司先进电子（珠海）有限公司拟在珠海市斗门区富山工业区投资PCB、PCBA及电子元器件业务的生产基地，总投资约15亿元，…",
     "date": "08-27",
     "views": 1,
-    "image": "hero-enterprise.jpg",
+    "image": "generated/news-enterprise-square.png",
     "body": [
       "8月27日，深圳嘉立创科技集团股份有限公司公告，其全资子公司先进电子（珠海）有限公司拟在珠海市斗门区富山工业区投资PCB、PCBA及电子元器件业务的生产基地，总投资约15亿元，…"
     ]
@@ -76,7 +76,7 @@ export const articles = [
     "desc": "8月26日，苹果推出新款Mac mini与Mac Studio，搭载全球首款2nm芯片M6及M5 Ultra，性能与AI能力实现颠覆性跃升。M6芯片采用2nm制程，12核CPU含2颗超级核心、4颗性能核心和6…",
     "date": "08-27",
     "views": 1,
-    "image": "hero-policy.jpg",
+    "image": "generated/news-tech-square.png",
     "body": [
       "8月26日，苹果推出新款Mac mini与Mac Studio，搭载全球首款2nm芯片M6及M5 Ultra，性能与AI能力实现颠覆性跃升。M6芯片采用2nm制程，12核CPU含2颗超级核心、4颗性能核心和6…"
     ]
@@ -117,7 +117,7 @@ articles.push(...[
     "desc": "企业信用等级是评估企业履约能力和信用风险的管理工具，中国采用的主要标准包括国际通行的“四等十级制”（AAA至D级）和国内常见的“三等九级制”（AAA至C级）。不同管理机构根据行业…",
     "date": "08-27",
     "views": 1,
-    "image": "certification.webp",
+    "image": "generated/news-credit-square.png",
     "body": [
       "企业信用等级是评估企业履约能力和信用风险的管理工具，中国采用的主要标准包括国际通行的“四等十级制”（AAA至D级）和国内常见的“三等九级制”（AAA至C级）。不同管理机构根据行业…"
     ]
@@ -130,7 +130,7 @@ articles.push(...[
     "desc": "随着在世界范围内，信息化水平的不断发展，信息安全逐渐成为人们关注的焦点，世界范围内的各个机构、组织、个人都在探寻如何保障信息安全的问题。英国、美国、挪威、瑞典、芬兰、澳…",
     "date": "08-27",
     "views": 1,
-    "image": "hero-reference-clean.webp",
+    "image": "generated/news-quality-square.png",
     "body": [
       "随着在世界范围内，信息化水平的不断发展，信息安全逐渐成为人们关注的焦点，世界范围内的各个机构、组织、个人都在探寻如何保障信息安全的问题。英国、美国、挪威、瑞典、芬兰、澳…"
     ]
