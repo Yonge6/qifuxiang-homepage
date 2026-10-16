@@ -99,3 +99,5 @@ When any text-entry control loses focus, dismiss the simulated keyboard. If the 
 - 百亿补贴横幅字标采用白色粗体、微倾斜红橙底，参考促销字标气质，自主设计字形组合细节。
 
 - 补充：百亿补贴整条窄横幅统一设计，右侧必须保留“查看更多”和箭头入口。
+
+- 百亿补贴字标最新要求：使用 imagegen 生成的透明图片素材；整条窄 banner 的背景、布局和“查看更多”保留。
