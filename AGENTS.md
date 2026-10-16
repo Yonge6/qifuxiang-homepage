@@ -105,3 +105,5 @@ When any text-entry control loses focus, dismiss the simulated keyboard. If the 
 - 百亿补贴窄横幅最新文案为“百亿补贴企业服务”，字标和整体背景均用 imagegen 出图，保留右侧查看更多。
 
 - 补贴商品标题前增加红橙色“百亿补贴”小标，首页与补贴列表复用同一商品卡片呈现。
+
+- 商品标题前补贴小标使用与 banner 一致的 imagegen 四字图片字标，商品标题加粗。

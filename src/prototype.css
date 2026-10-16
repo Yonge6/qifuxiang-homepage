@@ -636,4 +636,5 @@ html { background:#e9eff7; }
 .subsidy-more{display:inline-flex;align-items:center;gap:3px;flex:none;color:#a85d37;font-size:12px;font-weight:550;white-space:nowrap}.subsidy-more svg{flex:none}
 
 /* Inline campaign badge shared by homepage and subsidy-list product titles. */
-.product-subsidy-badge{display:inline-block;vertical-align:1px;margin-right:4px;padding:1px 4px;border-radius:3px;background:linear-gradient(105deg,#e94428,#fa7134);color:#fff;font-size:10px;font-weight:750;line-height:15px;letter-spacing:0;white-space:nowrap;box-shadow:inset 0 1px 0 #ffffff26}
+ .product-info h3:has(.product-subsidy-badge){font-weight:800}
+.product-info h3 .product-subsidy-badge{display:inline-block;width:68px;height:26px;margin:-5px 3px -5px -3px;vertical-align:middle;object-fit:contain;border:0;border-radius:0;background:none;box-shadow:none}
