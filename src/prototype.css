@@ -631,8 +631,6 @@ html { background:#e9eff7; }
 .toolbox-topbar .wechat-capsule{background:#fffffff2;box-shadow:0 5px 16px #07519c2a}
 
 /* Compact promotional entry above the homepage product grid. */
-.subsidy-banner{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;height:52px;margin:0 0 12px;padding:9px 12px;overflow:hidden;border:1px solid #f6d7c4;border-radius:11px;background:linear-gradient(105deg,#fff3e7 0%,#fff8ed 52%,#ffe8d0 100%);text-align:left;box-shadow:inset 0 1px 0 #fff}
-.subsidy-banner::before{content:'';position:absolute;z-index:-1;left:45%;top:-30px;width:26px;height:120px;transform:rotate(28deg);background:#ffffff63;box-shadow:35px 0 0 10px #ffffff30}
-.subsidy-banner::after{content:'';position:absolute;z-index:-1;right:-32px;top:-57px;width:140px;height:140px;border:1px solid #eab58d38;border-radius:50%;box-shadow:0 0 0 16px #ffffff30,0 0 0 32px #ffffff20}
-.subsidy-wordmark{display:block;flex:none;width:150px;height:58px;margin:-12px 0;object-fit:contain}
+.subsidy-banner{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;height:52px;margin:0 0 12px;padding:9px 12px;overflow:hidden;border:1px solid #f6d7c4;border-radius:11px;background:#fff0dd url("../public/images/subsidy-banner-bg-v1.png") center top / 100% auto no-repeat;text-align:left;box-shadow:inset 0 1px 0 #fff}
+.subsidy-wordmark{display:block;flex:0 1 230px;min-width:0;width:230px;height:76px;margin:-21px 0;object-fit:contain}
 .subsidy-more{display:inline-flex;align-items:center;gap:3px;flex:none;color:#a85d37;font-size:12px;font-weight:550;white-space:nowrap}.subsidy-more svg{flex:none}

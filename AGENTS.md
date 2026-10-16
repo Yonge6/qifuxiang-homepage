@@ -101,3 +101,5 @@ When any text-entry control loses focus, dismiss the simulated keyboard. If the 
 - 补充：百亿补贴整条窄横幅统一设计，右侧必须保留“查看更多”和箭头入口。
 
 - 百亿补贴字标最新要求：使用 imagegen 生成的透明图片素材；整条窄 banner 的背景、布局和“查看更多”保留。
+
+- 百亿补贴窄横幅最新文案为“百亿补贴企业服务”，字标和整体背景均用 imagegen 出图，保留右侧查看更多。
