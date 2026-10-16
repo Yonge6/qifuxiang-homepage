@@ -631,8 +631,11 @@ html { background:#e9eff7; }
 .toolbox-topbar .wechat-capsule{background:#fffffff2;box-shadow:0 5px 16px #07519c2a}
 
 /* Compact promotional entry above the homepage product grid. */
-.subsidy-banner{position:relative;isolation:isolate;display:flex;align-items:center;gap:8px;width:100%;min-height:48px;margin:0 0 12px;padding:10px 14px;overflow:hidden;border:1px solid #f8dfb5;border-radius:11px;background:linear-gradient(105deg,#fff6e4 0%,#ffedcc 62%,#ffe0a8 100%);color:#b94b13;text-align:left;box-shadow:inset 0 1px 0 #ffffffc9}
-.subsidy-banner::after{content:'';position:absolute;z-index:-1;right:31px;top:-38px;width:110px;height:110px;border:1px solid #ffffffa8;border-radius:50%;box-shadow:0 0 0 14px #ffffff24,0 0 0 29px #ffffff1c}
-.subsidy-banner strong{font-size:21px;line-height:1.2;font-weight:800;letter-spacing:2px;color:#b94b13}
-.subsidy-banner-glint{font-size:22px;line-height:1;color:#dd8928}
-.subsidy-banner>svg{margin-left:auto;color:#bd6b2e;flex:none}
+.subsidy-banner{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;height:52px;margin:0 0 12px;padding:9px 12px;overflow:hidden;border:1px solid #f6d7c4;border-radius:11px;background:linear-gradient(105deg,#fff3e7 0%,#fff8ed 52%,#ffe8d0 100%);text-align:left;box-shadow:inset 0 1px 0 #fff}
+.subsidy-banner::before{content:'';position:absolute;z-index:-1;left:45%;top:-30px;width:26px;height:120px;transform:rotate(28deg);background:#ffffff63;box-shadow:35px 0 0 10px #ffffff30}
+.subsidy-banner::after{content:'';position:absolute;z-index:-1;right:-32px;top:-57px;width:140px;height:140px;border:1px solid #eab58d38;border-radius:50%;box-shadow:0 0 0 16px #ffffff30,0 0 0 32px #ffffff20}
+.subsidy-wordmark{position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:1px;flex:none;padding:3px 10px 4px 8px;color:#fff;font-family:"PingFang SC","Microsoft YaHei",sans-serif;font-size:23px;font-weight:900;line-height:1.05;letter-spacing:-1px;transform:skewX(-8deg);text-shadow:0 1px 0 #a7281033}
+.subsidy-wordmark::before{content:'';position:absolute;z-index:-1;inset:0;border:1px solid #ed642f;border-radius:5px;background:linear-gradient(105deg,#e64328 0%,#f65b2d 67%,#ff7a36 100%);box-shadow:inset 0 1px 0 #ffffff57,0 2px 4px #bd4b1317}
+.subsidy-wordmark::after{content:'';position:absolute;left:9px;right:9px;bottom:2px;height:1px;background:linear-gradient(90deg,#ffffff87,transparent)}
+.subsidy-wordmark>span{display:block}.subsidy-wordmark>span:first-child{font-style:italic;letter-spacing:-2px;margin-right:3px}.subsidy-wordmark>span:last-child{font-size:21px;letter-spacing:0}
+.subsidy-more{display:inline-flex;align-items:center;gap:3px;flex:none;color:#a85d37;font-size:12px;font-weight:550;white-space:nowrap}.subsidy-more svg{flex:none}
