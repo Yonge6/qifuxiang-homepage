@@ -637,4 +637,4 @@ html { background:#e9eff7; }
 
 /* Inline campaign badge shared by homepage and subsidy-list product titles. */
  .product-info h3:has(.product-subsidy-badge){font-weight:800}
-.product-info h3 .product-subsidy-badge{display:inline-block;width:68px;height:26px;margin:-5px 3px -5px -3px;vertical-align:middle;object-fit:contain;border:0;border-radius:0;background:none;box-shadow:none}
+.product-info h3 .product-subsidy-badge{display:inline-block;width:78px;height:30px;margin:-7px -1px -7px -5px;vertical-align:middle;object-fit:contain;border:0;border-radius:0;background:none;box-shadow:none}
